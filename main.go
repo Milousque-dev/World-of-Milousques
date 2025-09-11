@@ -20,7 +20,7 @@ func main() {
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		fmt.Println("Erreur de lecture :", err)
-		os.Exit(1)
+		return
 	}
 	input = strings.TrimSpace(input)
 
@@ -64,8 +64,37 @@ func main() {
 		fmt.Println("PV :", c.Pdv, "/", c.PdvMax)
 		fmt.Println("Potions dans l'inventaire :", c.Inventaire.Potions)
 
+		err := os.MkdirAll("saves", os.ModePerm)
+		if err != nil {
+			fmt.Println("Erreur lors de la création du dossier de sauvegarde :", err)
+			return
+		}
+
+		saveErr := c.Sauvegarder()
+		if saveErr != nil {
+			fmt.Println("Erreur lors de la sauvegarde :", saveErr)
+		} else {
+			fmt.Println("Personnage sauvegardé avec succès dans saves/" + c.Nom + ".json")
+		}
+
 	} else if input == "REPRENDRE" {
-		fmt.Println("Chargement du personnage existant... (fonction à implémenter)")
+		fmt.Println("Entrez le nom du personnage à charger :")
+		nom, _ := reader.ReadString('\n')
+		nom = strings.TrimSpace(nom)
+
+		c, err := character.Charger(nom)
+		if err != nil {
+			fmt.Println("Erreur lors du chargement du personnage :", err)
+			return
+		}
+
+		fmt.Println("Personnage chargé avec succès !")
+		fmt.Println("Nom :", c.Nom)
+		fmt.Println("Classe :", c.Classe.Nom)
+		fmt.Println("Niveau :", c.Niveau)
+		fmt.Println("PV :", c.Pdv, "/", c.PdvMax)
+		fmt.Println("Potions dans l'inventaire :", c.Inventaire.Potions)
+
 	} else {
 		fmt.Println("Commande non reconnue.")
 	}

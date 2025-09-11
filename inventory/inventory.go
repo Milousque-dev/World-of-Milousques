@@ -1,6 +1,6 @@
 package inventory
 
 type Inventaire struct {
-	Potions int
-	Items []string
+	Potions int `json:"potions"`
+	Items []string `json:"items"`
 }

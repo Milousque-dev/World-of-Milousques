@@ -6,40 +6,40 @@ import (
 )
 
 type Classe struct {
-	Nom        string
-	Pvmax      int
-	Sorts      sorts.Sorts
-	Classeitem classeitem.Classeitem
+	Nom string `json:"nom"`
+	Pvmax int `json:"pv_max"`
+	Sorts sorts.Sorts `json:"sorts"`
+	Classeitem classeitem.Classeitem `json:"classeitem"`
 }
 
 func GetClasse(nom string) Classe {
 	switch nom {
 	case "Guerrier":
 		return Classe{
-			Nom:        "Guerrier",
-			Pvmax:      130,
-			Sorts:      sorts.Sorts{},
+			Nom: "Guerrier",
+			Pvmax: 130,
+			Sorts: sorts.Sorts{},
 			Classeitem: classeitem.Classeitem{},
 		}
 	case "Mage":
 		return Classe{
-			Nom:        "Mage",
-			Pvmax:      70,
-			Sorts:      sorts.Sorts{},
+			Nom: "Mage",
+			Pvmax: 70,
+			Sorts: sorts.Sorts{},
 			Classeitem: classeitem.Classeitem{},
 		}
 	case "Voleur":
 		return Classe{
-			Nom:        "Voleur",
-			Pvmax:      100,
-			Sorts:      sorts.Sorts{},
+			Nom: "Voleur",
+			Pvmax: 100,
+			Sorts: sorts.Sorts{},
 			Classeitem: classeitem.Classeitem{},
 		}
 	default:
 		return Classe{
-			Nom:        nom,
-			Pvmax:      100,
-			Sorts:      sorts.Sorts{},
+			Nom: nom,
+			Pvmax: 100,
+			Sorts: sorts.Sorts{},
 			Classeitem: classeitem.Classeitem{},
 		}
 	}
