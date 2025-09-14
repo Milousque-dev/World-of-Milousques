@@ -1,6 +1,8 @@
 package inventory
 
+import "world_of_milousques/item"
+
 type Inventaire struct {
 	Potions int `json:"potions"`
-	Items []string `json:"items"`
+	Item item.Item `json:"items"`
 }

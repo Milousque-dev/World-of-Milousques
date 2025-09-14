@@ -10,21 +10,21 @@ import (
 )
 
 type Character struct {
-	Nom string `json:"nom"`
-	Niveau float64 `json:"niveau"`
-	Pdv int `json:"pdv"`
-	PdvMax int `json:"pdv_max"`
-	Classe classe.Classe `json:"classe"`
+	Nom        string             `json:"nom"`
+	Niveau     float64            `json:"niveau"`
+	Pdv        int                `json:"pdv"`
+	PdvMax     int                `json:"pdv_max"`
+	Classe     classe.Classe      `json:"classe"`
 	Inventaire inventory.Inventaire `json:"inventaire"`
 }
 
-func InitCharacter(nom string, classe classe.Classe, niveau float64, pdv, pdvmax int) Character {
+func InitCharacter(nom string, c classe.Classe, niveau float64, pdv int, pdvmax int) Character {
 	return Character{
-		Nom: nom,
-		Classe: classe,
-		Niveau: niveau,
-		Pdv: pdv,
-		PdvMax: pdvmax,
+		Nom:        nom,
+		Classe:     c,
+		Niveau:     niveau,
+		Pdv:        pdv,
+		PdvMax:     pdvmax,
 		Inventaire: inventory.Inventaire{},
 	}
 }
