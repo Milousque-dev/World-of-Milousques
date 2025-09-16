@@ -26,10 +26,13 @@ func StartAdventure(joueur *character.Character) {
 		switch choice {
 		case 1:
 			fmt.Println("Mathiouw : Je suis Mathiouw, le berger des jeunes âmes.")
+			fmt.Println("Mathiouw : Je vais m'occuper de te préparer aux aventures qui t'attendent")
 		case 2:
 			fmt.Println("Mathiouw : Un peu long à expliquer, cela viendra plus tard.")
+			fmt.Println("Mathiouw : Considère ce lieu comme chez toi pour l'instant")
 		case 3:
-			fmt.Println("Mathiouw : Très bien, ta première quête consiste à vaincre un Chacha Agressif !")
+			fmt.Println("Mathiouw : On va commencer par les bases du combat")
+			fmt.Println("Mathiouw : Ta première quête consiste à vaincre un Chacha Agressif !")
 			TutorielCombatQuete(joueur)
 			return
 		default:
