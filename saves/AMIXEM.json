@@ -1,0 +1,30 @@
+{
+  "nom": "AMIXEM",
+  "niveau": 1,
+  "pdv": 100,
+  "mana": 100,
+  "pdv_max": 100,
+  "mana_max": 100,
+  "classe": {
+    "nom": "Voleur",
+    "pv_max": 100,
+    "mana_max": 100,
+    "sorts": [
+      {
+        "Nom": "Coup bas",
+        "Degats": 25,
+        "Cout": 15
+      },
+      {
+        "Nom": "Fourberie",
+        "Degats": 10,
+        "Cout": 0
+      }
+    ],
+    "classe_items": []
+  },
+  "inventaire": {
+    "potions": 0,
+    "items": null
+  }
+}

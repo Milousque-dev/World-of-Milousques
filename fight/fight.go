@@ -15,55 +15,59 @@ func Fight(joueur *character.Character, ennemi Ennemi) {
 	fmt.Printf("\nUn %s apparaît !\n", ennemi.Nom)
 
 	for joueur.Pdv > 0 && ennemi.Pv > 0 {
-		fmt.Printf("\n%s - PV : %d/%d, Mana : %d/%d\n", joueur.Nom, joueur.Pdv, joueur.PdvMax, joueur.Mana, joueur.ManaMax)
-		fmt.Printf("%s - PV : %d\n", ennemi.Nom, ennemi.Pv)
+		fmt.Println("\nTes PVs :", joueur.Pdv, "/", joueur.Classe.Pvmax, " | Mana :", joueur.Mana, "/", joueur.Classe.ManaMax)
+		fmt.Println(ennemi.Nom, "a", ennemi.Pv, "PVs restants.")
+		fmt.Println("\nChoisis un sort ou utilise une potion :")
 
-		fmt.Println("\nChoisis un sort :")
 		for i, s := range joueur.Classe.Sorts {
-			fmt.Printf("%d - %s (Dégâts : %d, Coût mana : %d)\n", i+1, s.Nom, s.Degats, s.Cout)
+			fmt.Printf("%d - %s (dégâts : %d, coût mana : %d)\n", i+1, s.Nom, s.Degats, s.Cout)
 		}
 
+		optionPotion := len(joueur.Classe.Sorts) + 1
+		fmt.Printf("%d - Utiliser une potion (+50 PV)\n", optionPotion)
+
 		var choix int
-		fmt.Print("Entrez le numéro du sort : ")
 		fmt.Scanln(&choix)
 
-		if choix < 1 || choix > len(joueur.Classe.Sorts) {
+		if choix == optionPotion {
+			if joueur.Inventaire.Potions > 0 {
+				joueur.Pdv += 50
+				if joueur.Pdv > joueur.Classe.Pvmax {
+					joueur.Pdv = joueur.Classe.Pvmax
+				}
+				joueur.Inventaire.Potions--
+				fmt.Println("Tu utilises une potion et récupères 50 PVs !")
+			} else {
+				fmt.Println("Tu n'as pas de potion !")
+				continue
+			}
+		} else if choix >= 1 && choix <= len(joueur.Classe.Sorts) {
+			s := joueur.Classe.Sorts[choix-1]
+			if joueur.Mana < s.Cout {
+				fmt.Println("Pas assez de mana pour lancer ce sort !")
+				continue
+			}
+			joueur.Mana -= s.Cout
+			ennemi.Pv -= s.Degats
+			fmt.Printf("Tu lances %s et infliges %d dégâts !\n", s.Nom, s.Degats)
+		} else {
 			fmt.Println("Choix invalide, réessaie.")
 			continue
 		}
 
-		sortChoisi := joueur.Classe.Sorts[choix-1]
-
-		if sortChoisi.Cout > joueur.Mana {
-			fmt.Println("Pas assez de mana pour lancer ce sort !")
-			continue
-		}
-
-		joueur.Mana -= sortChoisi.Cout
-
-		ennemi.Pv -= sortChoisi.Degats
-		if ennemi.Pv < 0 {
-			ennemi.Pv = 0
-		}
-
-		fmt.Printf("Tu lances %s et infliges %d dégâts !\n", sortChoisi.Nom, sortChoisi.Degats)
-		fmt.Printf("%s a maintenant %d PV\n", ennemi.Nom, ennemi.Pv)
-
 		if ennemi.Pv <= 0 {
 			fmt.Printf("%s est vaincu !\n", ennemi.Nom)
-			return
+			break
 		}
 
 		joueur.Pdv -= ennemi.Attaque
-		if joueur.Pdv < 0 {
-			joueur.Pdv = 0
-		}
 		fmt.Printf("%s t'attaque et inflige %d dégâts !\n", ennemi.Nom, ennemi.Attaque)
-		fmt.Printf("Tu as maintenant %d PV\n", joueur.Pdv)
+	}
 
-		if joueur.Pdv <= 0 {
-			fmt.Println("Tu as été vaincu...")
-			return
-		}
+	if joueur.Pdv <= 0 {
+		fmt.Println("Tu as été vaincu... Game Over.")
+	} else {
+		joueur.Mana = joueur.Classe.ManaMax
+		fmt.Println("Ta mana est maintenant restaurée au maximum !")
 	}
 }

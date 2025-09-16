@@ -18,21 +18,29 @@ func main() {
 	fmt.Println("Voulez-vous créer un personnage ou reprendre un personnage existant ?")
 	fmt.Println("Tapez CREER pour créer un nouveau personnage ou REPRENDRE pour sélectionner un personnage existant")
 
-	input, _ := reader.ReadString('\n')
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Erreur de lecture :", err)
+		return
+	}
 	input = strings.ToUpper(strings.TrimSpace(input))
 
 	switch input {
 	case "CREER":
-		creerPersonnage(reader)
+		c := creerPersonnage(reader)
+		places.StartAdventure(&c)
 	case "REPRENDRE":
-		reprendrePersonnage(reader)
+		c := reprendrePersonnage(reader)
+		if c != nil {
+			places.StartAdventure(c)
+		}
 	default:
 		fmt.Println("Commande non reconnue.")
 	}
 	fmt.Println("")
 }
 
-func creerPersonnage(reader *bufio.Reader) {
+func creerPersonnage(reader *bufio.Reader) character.Character {
 	fmt.Println("Entrez le nom de votre personnage :")
 	nom, _ := reader.ReadString('\n')
 	nom = strings.TrimSpace(nom)
@@ -59,24 +67,20 @@ func creerPersonnage(reader *bufio.Reader) {
 		classeNom = strings.TrimSpace(classeNom)
 	default:
 		fmt.Println("Commande non reconnue.")
-		return
+		return character.Character{}
 	}
 
 	classeChoisie := classe.GetClasse(classeNom)
-	c := character.InitCharacter(
-		nom,
-		classeChoisie,
-		1,
-		classeChoisie.Pvmax,
-		classeChoisie.Pvmax,
-		classeChoisie.ManaMax,
-		classeChoisie.ManaMax,
-	)
+	c := character.InitCharacter(nom, classeChoisie, 1, classeChoisie.Pvmax, classeChoisie.Pvmax)
 
 	fmt.Println("Personnage créé !")
 	afficherPersonnage(&c)
 
-	_ = os.MkdirAll("saves", os.ModePerm)
+	err := os.MkdirAll("saves", os.ModePerm)
+	if err != nil {
+		fmt.Println("Erreur lors de la création du dossier de sauvegarde :", err)
+		return c
+	}
 
 	if err := c.Sauvegarder(); err != nil {
 		fmt.Println("Erreur lors de la sauvegarde :", err)
@@ -84,10 +88,10 @@ func creerPersonnage(reader *bufio.Reader) {
 		fmt.Println("Personnage sauvegardé avec succès dans saves/" + c.Nom + ".json")
 	}
 
-	places.StartAdventure(c.Nom, c.Classe.Nom, &c)
+	return c
 }
 
-func reprendrePersonnage(reader *bufio.Reader) {
+func reprendrePersonnage(reader *bufio.Reader) *character.Character {
 	fmt.Println("Entrez le nom du personnage à charger :")
 	nom, _ := reader.ReadString('\n')
 	nom = strings.TrimSpace(nom)
@@ -95,20 +99,25 @@ func reprendrePersonnage(reader *bufio.Reader) {
 	c, err := character.Charger(nom)
 	if err != nil {
 		fmt.Println("Erreur lors du chargement du personnage :", err)
-		return
+		return nil
 	}
 
 	fmt.Println("Personnage chargé avec succès !")
 	afficherPersonnage(c)
-
-	places.StartAdventure(c.Nom, c.Classe.Nom, c)
+	return c
 }
 
 func afficherPersonnage(c *character.Character) {
 	fmt.Println("Nom :", c.Nom)
 	fmt.Println("Classe :", c.Classe.Nom)
 	fmt.Println("Niveau :", c.Niveau)
-	fmt.Println("PV :", c.Pdv, "/", c.PdvMax)
-	fmt.Println("Mana :", c.Mana, "/", c.ManaMax)
+	fmt.Println("PV :", c.Pdv, "/", c.Classe.Pvmax)
+	fmt.Println("Mana :", c.Mana, "/", c.Classe.ManaMax)
 	fmt.Println("Potions dans l'inventaire :", c.Inventaire.Potions)
+	if len(c.Classe.Sorts) > 0 {
+		fmt.Println("Sorts disponibles :")
+		for _, s := range c.Classe.Sorts {
+			fmt.Printf("- %s (Dégâts : %d, Coût en mana : %d)\n", s.Nom, s.Degats, s.Cout)
+		}
+	}
 }

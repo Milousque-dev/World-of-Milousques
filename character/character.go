@@ -9,27 +9,30 @@ import (
 	"world_of_milousques/inventory"
 )
 
+type Quete struct {
+	Nom       string
+	Accomplie bool
+}
+
 type Character struct {
 	Nom        string               `json:"nom"`
 	Niveau     float64              `json:"niveau"`
 	Pdv        int                  `json:"pdv"`
 	Mana       int                  `json:"mana"`
-	PdvMax     int                  `json:"pdv_max"`
-	ManaMax    int                  `json:"mana_max"`
 	Classe     classe.Classe        `json:"classe"`
 	Inventaire inventory.Inventaire `json:"inventaire"`
+	Quetes     []Quete              `json:"quetes"`
 }
 
-func InitCharacter(nom string, c classe.Classe, niveau float64, pdv int, pdvmax int, mana int, manamax int) Character {
+func InitCharacter(nom string, c classe.Classe, niveau float64, pdv int, pdvmax int) Character {
 	return Character{
 		Nom:        nom,
-		Classe:     c,
 		Niveau:     niveau,
 		Pdv:        pdv,
-		PdvMax:     pdvmax,
-		Mana:       mana,
-		ManaMax:    manamax,
+		Mana:       c.ManaMax,
+		Classe:     c,
 		Inventaire: inventory.Inventaire{},
+		Quetes:     []Quete{},
 	}
 }
 
@@ -71,4 +74,32 @@ func Charger(nom string) (*Character, error) {
 
 	fmt.Println("Personnage chargé depuis", filename)
 	return &c, nil
+}
+
+func (c *Character) ProposerEtAjouterQuete(nom string) {
+	c.Quetes = append(c.Quetes, Quete{Nom: nom, Accomplie: false})
+}
+
+func (c *Character) CompleterQuete(nom string) {
+	for i := range c.Quetes {
+		if c.Quetes[i].Nom == nom {
+			c.Quetes[i].Accomplie = true
+			break
+		}
+	}
+}
+
+func (c *Character) AfficherQuetes() {
+	if len(c.Quetes) == 0 {
+		fmt.Println("Aucune quête.")
+		return
+	}
+	fmt.Println("Quêtes :")
+	for _, q := range c.Quetes {
+		status := "Non accomplie"
+		if q.Accomplie {
+			status = "Accomplie"
+		}
+		fmt.Printf("- %s : %s\n", q.Nom, status)
+	}
 }

@@ -6,10 +6,10 @@ import (
 )
 
 type Classe struct {
-	Nom         string                 `json:"nom"`
-	Pvmax       int                    `json:"pv_max"`
-	ManaMax     int                    `json:"mana_max"`
-	Sorts       []sorts.Sorts          `json:"sorts"`
+	Nom         string                  `json:"nom"`
+	Pvmax       int                     `json:"pv_max"`
+	ManaMax     int                     `json:"mana_max"`
+	Sorts       []sorts.Sorts           `json:"sorts"`
 	ClasseItems []classeitem.Classeitem `json:"classe_items"`
 }
 
