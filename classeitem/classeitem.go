@@ -1,8 +1,8 @@
 package classeitem
 
 type Classeitem struct {
-	nom string
-	poid int
-	effet string
-	valeur int
+	Nom string
+	Poid int
+	Effet string
+	Valeur int
 }

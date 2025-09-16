@@ -2,29 +2,33 @@ package character
 
 import (
 	"encoding/json"
-	"os"
 	"fmt"
+	"os"
 
-	"world_of_milousques/inventory"
 	"world_of_milousques/classe"
+	"world_of_milousques/inventory"
 )
 
 type Character struct {
-	Nom        string             `json:"nom"`
-	Niveau     float64            `json:"niveau"`
-	Pdv        int                `json:"pdv"`
-	PdvMax     int                `json:"pdv_max"`
-	Classe     classe.Classe      `json:"classe"`
+	Nom        string               `json:"nom"`
+	Niveau     float64              `json:"niveau"`
+	Pdv        int                  `json:"pdv"`
+	Mana       int                  `json:"mana"`
+	PdvMax     int                  `json:"pdv_max"`
+	ManaMax    int                  `json:"mana_max"`
+	Classe     classe.Classe        `json:"classe"`
 	Inventaire inventory.Inventaire `json:"inventaire"`
 }
 
-func InitCharacter(nom string, c classe.Classe, niveau float64, pdv int, pdvmax int) Character {
+func InitCharacter(nom string, c classe.Classe, niveau float64, pdv int, pdvmax int, mana int, manamax int) Character {
 	return Character{
 		Nom:        nom,
 		Classe:     c,
 		Niveau:     niveau,
 		Pdv:        pdv,
 		PdvMax:     pdvmax,
+		Mana:       mana,
+		ManaMax:    manamax,
 		Inventaire: inventory.Inventaire{},
 	}
 }

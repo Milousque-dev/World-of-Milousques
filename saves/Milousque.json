@@ -1,19 +1,30 @@
 {
   "nom": "Milousque",
   "niveau": 1,
-  "pdv": 100,
-  "pdv_max": 100,
+  "pdv": 70,
+  "mana": 130,
+  "pdv_max": 70,
+  "mana_max": 130,
   "classe": {
-    "nom": "Voleur",
-    "pv_max": 100,
-    "sorts": {
-      "Dégats": 0,
-      "Cout": 0
-    },
-    "classeitem": {}
+    "nom": "Mage",
+    "pv_max": 70,
+    "mana_max": 130,
+    "sorts": [
+      {
+        "Nom": "Boule de feu",
+        "Degats": 30,
+        "Cout": 20
+      },
+      {
+        "Nom": "Explosion",
+        "Degats": 50,
+        "Cout": 40
+      }
+    ],
+    "classe_items": []
   },
   "inventaire": {
     "potions": 0,
-    "item": null
+    "items": null
   }
 }
