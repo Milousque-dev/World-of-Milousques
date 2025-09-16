@@ -1,22 +1,22 @@
 {
   "nom": "Milousque",
   "niveau": 1,
-  "pdv": 130,
-  "mana": 70,
+  "pdv": 70,
+  "mana": 130,
   "classe": {
-    "nom": "Guerrier",
-    "pv_max": 130,
-    "mana_max": 70,
+    "nom": "Mage",
+    "pv_max": 70,
+    "mana_max": 130,
     "sorts": [
       {
-        "Nom": "Fracasser",
-        "Degats": 20,
-        "Cout": 10
+        "Nom": "Boule de feu",
+        "Degats": 30,
+        "Cout": 20
       },
       {
-        "Nom": "Briser",
-        "Degats": 40,
-        "Cout": 20
+        "Nom": "Explosion",
+        "Degats": 50,
+        "Cout": 40
       }
     ],
     "classe_items": []

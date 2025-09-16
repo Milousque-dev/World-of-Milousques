@@ -1,76 +1,74 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"bufio"
 	"os"
 	"strings"
 
 	"world_of_milousques/character"
 	"world_of_milousques/classe"
 	"world_of_milousques/places"
+	"world_of_milousques/ui"
 )
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Println("Bienvenue dans World of Milousques")
-	fmt.Println("Voulez-vous créer un personnage ou reprendre un personnage existant ?")
-	fmt.Println("Tapez CREER pour créer un nouveau personnage ou REPRENDRE pour sélectionner un personnage existant")
-
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("Erreur de lecture :", err)
-		return
-	}
-	input = strings.ToUpper(strings.TrimSpace(input))
-
-	switch input {
-	case "CREER":
-		c := creerPersonnage(reader)
-		places.StartAdventure(&c)
-	case "REPRENDRE":
-		c := reprendrePersonnage(reader)
-		if c != nil {
-			places.StartAdventure(c)
+	for {
+		options := []string{
+			"Créer un personnage",
+			"Charger un personnage existant",
+			"Quitter",
 		}
-	default:
-		fmt.Println("Commande non reconnue.")
+		ui.AfficherMenu("World of Milousques", options)
+		fmt.Print("Entrez votre choix : ")
+
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		switch input {
+		case "1", "CREER":
+			c := creerPersonnage(reader)
+			if c.Nom != "" {
+				places.StartAdventure(&c)
+			}
+		case "2", "REPRENDRE":
+			c := reprendrePersonnage(reader)
+			if c != nil {
+				places.StartAdventure(c)
+			}
+		case "3", "QUITTER":
+			fmt.Println("Au revoir !")
+			return
+		default:
+			fmt.Println("Commande non reconnue.")
+		}
 	}
-	fmt.Println("")
 }
 
 func creerPersonnage(reader *bufio.Reader) character.Character {
-	fmt.Println("Entrez le nom de votre personnage :")
+	fmt.Print("Entrez le nom de votre personnage : ")
 	nom, _ := reader.ReadString('\n')
 	nom = strings.TrimSpace(nom)
 
-	fmt.Println("Voulez-vous voir un aperçu des classes disponibles ou choisir directement une classe ?")
-	fmt.Println("Tapez APERCU ou CHOISIR")
-	choix, _ := reader.ReadString('\n')
-	choix = strings.ToUpper(strings.TrimSpace(choix))
+	classes := classe.GetClassesDisponibles()
+	classOptions := []string{}
+	for _, cl := range classes {
+		classOptions = append(classOptions, fmt.Sprintf("%s (PV max : %d, Mana max : %d)", cl.Nom, cl.Pvmax, cl.ManaMax))
+	}
 
-	var classeNom string
-	switch choix {
-	case "APERCU":
-		classes := classe.GetClassesDisponibles()
-		fmt.Println("Voici les classes disponibles :")
-		for _, cl := range classes {
-			fmt.Println("- " + cl.Nom + " (PV max : " + fmt.Sprint(cl.Pvmax) + ", Mana max : " + fmt.Sprint(cl.ManaMax) + ")")
-		}
-		fmt.Println("Maintenant, entrez la classe de votre personnage :")
-		classeNom, _ = reader.ReadString('\n')
-		classeNom = strings.TrimSpace(classeNom)
-	case "CHOISIR":
-		fmt.Println("Entrez la classe de votre personnage (Guerrier, Mage, Voleur) :")
-		classeNom, _ = reader.ReadString('\n')
-		classeNom = strings.TrimSpace(classeNom)
-	default:
-		fmt.Println("Commande non reconnue.")
+	ui.AfficherMenu("Choisissez la classe de votre personnage", classOptions)
+	fmt.Print("Entrez le numéro de la classe : ")
+	var choix int
+	fmt.Scanln(&choix)
+
+	if choix < 1 || choix > len(classes) {
+		fmt.Println("Classe invalide, création annulée.")
 		return character.Character{}
 	}
 
-	classeChoisie := classe.GetClasse(classeNom)
+	classeChoisie := classes[choix-1]
 	c := character.InitCharacter(nom, classeChoisie, 1, classeChoisie.Pvmax, classeChoisie.Pvmax)
 
 	fmt.Println("Personnage créé !")
@@ -92,7 +90,7 @@ func creerPersonnage(reader *bufio.Reader) character.Character {
 }
 
 func reprendrePersonnage(reader *bufio.Reader) *character.Character {
-	fmt.Println("Entrez le nom du personnage à charger :")
+	fmt.Print("Entrez le nom du personnage à charger : ")
 	nom, _ := reader.ReadString('\n')
 	nom = strings.TrimSpace(nom)
 

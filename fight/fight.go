@@ -3,6 +3,7 @@ package fight
 import (
 	"fmt"
 	"world_of_milousques/character"
+	"world_of_milousques/ui"
 )
 
 type Ennemi struct {
@@ -12,22 +13,23 @@ type Ennemi struct {
 }
 
 func Fight(joueur *character.Character, ennemi Ennemi) {
-	fmt.Printf("\nUn %s apparaît !\n", ennemi.Nom)
-
 	for joueur.Pdv > 0 && ennemi.Pv > 0 {
-		fmt.Println("\nTes PVs :", joueur.Pdv, "/", joueur.Classe.Pvmax, " | Mana :", joueur.Mana, "/", joueur.Classe.ManaMax)
-		fmt.Println(ennemi.Nom, "a", ennemi.Pv, "PVs restants.")
-		fmt.Println("\nChoisis un sort ou utilise une potion :")
 
-		for i, s := range joueur.Classe.Sorts {
-			fmt.Printf("%d - %s (dégâts : %d, coût mana : %d)\n", i+1, s.Nom, s.Degats, s.Cout)
+		fmt.Printf("\nTes PV : %d / %d | Mana : %d / %d\n", joueur.Pdv, joueur.Classe.Pvmax, joueur.Mana, joueur.Classe.ManaMax)
+		fmt.Printf("%s a %d PV\n", ennemi.Nom, ennemi.Pv)
+
+		options := []string{}
+		for _, s := range joueur.Classe.Sorts {
+			options = append(options, fmt.Sprintf("%s (dégâts : %d, coût mana : %d)", s.Nom, s.Degats, s.Cout))
 		}
+		options = append(options, fmt.Sprintf("Utiliser une potion (+50 PV) (%d disponibles)", joueur.Inventaire.Potions))
 
-		optionPotion := len(joueur.Classe.Sorts) + 1
-		fmt.Printf("%d - Utiliser une potion (+50 PV)\n", optionPotion)
+		ui.AfficherMenu("Combat contre "+ennemi.Nom, options)
+		fmt.Print("Choisis ton action : ")
 
 		var choix int
 		fmt.Scanln(&choix)
+		optionPotion := len(joueur.Classe.Sorts) + 1
 
 		if choix == optionPotion {
 			if joueur.Inventaire.Potions > 0 {
@@ -64,10 +66,10 @@ func Fight(joueur *character.Character, ennemi Ennemi) {
 		fmt.Printf("%s t'attaque et inflige %d dégâts !\n", ennemi.Nom, ennemi.Attaque)
 	}
 
-	if joueur.Pdv <= 0 {
-		fmt.Println("Tu as été vaincu... Game Over.")
-	} else {
+	if joueur.Pdv > 0 {
 		joueur.Mana = joueur.Classe.ManaMax
 		fmt.Println("Ta mana est maintenant restaurée au maximum !")
+	} else {
+		fmt.Println("Tu as été vaincu... Game Over.")
 	}
 }

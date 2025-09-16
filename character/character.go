@@ -12,6 +12,7 @@ import (
 type Quete struct {
 	Nom       string
 	Accomplie bool
+	Recompense string
 }
 
 type Character struct {
@@ -76,14 +77,16 @@ func Charger(nom string) (*Character, error) {
 	return &c, nil
 }
 
-func (c *Character) ProposerEtAjouterQuete(nom string) {
-	c.Quetes = append(c.Quetes, Quete{Nom: nom, Accomplie: false})
+func (c *Character) ProposerEtAjouterQuete(nom string, recompense string) {
+	c.Quetes = append(c.Quetes, Quete{Nom: nom, Accomplie: false, Recompense: recompense})
 }
 
 func (c *Character) CompleterQuete(nom string) {
 	for i := range c.Quetes {
 		if c.Quetes[i].Nom == nom {
 			c.Quetes[i].Accomplie = true
+			fmt.Println("Quête complétée :", nom)
+			fmt.Println("Récompense :", c.Quetes[i].Recompense)
 			break
 		}
 	}
@@ -100,6 +103,6 @@ func (c *Character) AfficherQuetes() {
 		if q.Accomplie {
 			status = "Accomplie"
 		}
-		fmt.Printf("- %s : %s\n", q.Nom, status)
+		fmt.Printf("- %s : %s | Récompense : %s\n", q.Nom, status, q.Recompense)
 	}
 }
