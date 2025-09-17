@@ -10,30 +10,30 @@ import (
 )
 
 type Quete struct {
-	Nom       string
+	Nom string
 	Accomplie bool
 	Recompense string
 }
 
 type Character struct {
-	Nom        string               `json:"nom"`
-	Niveau     float64              `json:"niveau"`
-	Pdv        int                  `json:"pdv"`
-	Mana       int                  `json:"mana"`
-	Classe     classe.Classe        `json:"classe"`
+	Nom string `json:"nom"`
+	Niveau float64 `json:"niveau"`
+	Pdv int `json:"pdv"`
+	Mana int `json:"mana"`
+	Classe classe.Classe `json:"classe"`
 	Inventaire inventory.Inventaire `json:"inventaire"`
-	Quetes     []Quete              `json:"quetes"`
+	Quetes []Quete `json:"quetes"`
 }
 
 func InitCharacter(nom string, c classe.Classe, niveau float64, pdv int, pdvmax int) Character {
 	return Character{
-		Nom:        nom,
-		Niveau:     niveau,
-		Pdv:        pdv,
-		Mana:       c.ManaMax,
-		Classe:     c,
+		Nom: nom,
+		Niveau: niveau,
+		Pdv: pdv,
+		Mana: c.ManaMax,
+		Classe: c,
 		Inventaire: inventory.Inventaire{},
-		Quetes:     []Quete{},
+		Quetes: []Quete{},
 	}
 }
 
@@ -87,6 +87,10 @@ func (c *Character) CompleterQuete(nom string) {
 			c.Quetes[i].Accomplie = true
 			fmt.Println("Quête complétée :", nom)
 			fmt.Println("Récompense :", c.Quetes[i].Recompense)
+			if c.Quetes[i].Recompense == "1 potion" {
+				c.Inventaire.Potions++
+				fmt.Println("Vous recevez 1 potion !")
+			}
 			break
 		}
 	}

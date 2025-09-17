@@ -1,46 +1,80 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 	"strings"
 
 	"world_of_milousques/character"
 	"world_of_milousques/classe"
+	"world_of_milousques/fight"
 	"world_of_milousques/places"
 	"world_of_milousques/ui"
 )
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
+	c := gererMenuPrincipal(reader)
+	if c == nil {
+		return
+	}
 
-	for {
-		options := []string{
-			"Créer un personnage",
-			"Charger un personnage existant",
-			"Quitter",
+	for _, scene := range places.GetIntroDialogue() {
+		fmt.Println("\n==== " + scene.Titre + " ====")
+		fmt.Println(scene.Description)
+		ui.AfficherMenu("Choisissez une option", scene.Options)
+		var choix int
+		fmt.Print("Votre choix : ")
+		fmt.Scanln(&choix)
+		if choix >= 1 && choix <= len(scene.Actions) {
+			scene.Actions[choix-1](c)
 		}
+	}
+
+	quete, recompense, ennemi := places.GetTutorielCombat()
+	fmt.Printf("\nQuête proposée : %s\nRécompense : %s\n", quete, recompense)
+	c.ProposerEtAjouterQuete(quete, recompense)
+	fight.Fight(c, ennemi)
+	if ennemi.Pv <= 0 {
+		c.CompleterQuete(quete)
+	}
+
+	for _, scene := range places.GetScenesAventure() {
+		fmt.Println("\n==== " + scene.Titre + " ====")
+		fmt.Println(scene.Description)
+		ui.AfficherMenu("Que faites-vous ?", scene.Options)
+		var choix int
+		fmt.Print("Votre choix : ")
+		fmt.Scanln(&choix)
+		if choix >= 1 && choix <= len(scene.Actions) {
+			scene.Actions[choix-1](c)
+		}
+	}
+}
+
+func gererMenuPrincipal(reader *bufio.Reader) *character.Character {
+	for {
+		options := []string{"Créer un personnage", "Charger un personnage existant", "Quitter"}
 		ui.AfficherMenu("World of Milousques", options)
 		fmt.Print("Entrez votre choix : ")
-
 		input, _ := reader.ReadString('\n')
-		input = strings.TrimSpace(input)
+		input = strings.TrimSpace(strings.ToUpper(input))
 
 		switch input {
 		case "1", "CREER":
 			c := creerPersonnage(reader)
 			if c.Nom != "" {
-				places.StartAdventure(&c)
+				return &c
 			}
 		case "2", "REPRENDRE":
 			c := reprendrePersonnage(reader)
 			if c != nil {
-				places.StartAdventure(c)
+				return c
 			}
 		case "3", "QUITTER":
 			fmt.Println("Au revoir !")
-			return
+			return nil
 		default:
 			fmt.Println("Commande non reconnue.")
 		}
