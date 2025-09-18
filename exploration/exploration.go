@@ -907,3 +907,5 @@ func afficherStatutComplet(joueur *character.Character) {
 	
 	joueur.AfficherQuetes()
 }
+
+
