@@ -1,8 +1,22 @@
 {
   "nom": "Milousque",
-  "niveau": 1,
-  "pdv": 70,
-  "mana": 130,
+  "niveau": 2,
+  "pdv": 45,
+  "mana": 0,
+  "pdv_max": 70,
+  "mana_max": 140,
+  "experience": 124,
+  "argent": 100,
+  "casque_equipe": {
+    "Nom": "Casque en Métal",
+    "Type": "casque",
+    "Poids": 8,
+    "Effet": "Protection de tête métallique résistante",
+    "Valeur": 300,
+    "Attaque": 0,
+    "Defense": 10,
+    "ClasseRequise": ""
+  },
   "classe": {
     "nom": "Mage",
     "pv_max": 70,
@@ -18,12 +32,1083 @@
         "Degats": 50,
         "Cout": 40
       }
-    ],
-    "classe_items": []
+    ]
   },
   "inventaire": {
-    "potions": 0,
-    "items": null
+    "potions": 1,
+    "potions_mana": 0,
+    "items": [
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Bois",
+        "Type": "ressource",
+        "Poids": 10,
+        "Effet": "Manger du bois vous fera mal aux dents",
+        "Valeur": 5,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Bois",
+        "Type": "ressource",
+        "Poids": 10,
+        "Effet": "Manger du bois vous fera mal aux dents",
+        "Valeur": 5,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Bois",
+        "Type": "ressource",
+        "Poids": 10,
+        "Effet": "Manger du bois vous fera mal aux dents",
+        "Valeur": 5,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Bois",
+        "Type": "ressource",
+        "Poids": 10,
+        "Effet": "Manger du bois vous fera mal aux dents",
+        "Valeur": 5,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Laitue Vireuse",
+        "Type": "ressource",
+        "Poids": 1,
+        "Effet": "La solution de secours favorite de Yelram Bob !",
+        "Valeur": 8,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Pichon",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Piche qui glisse n'amasse pas de risques !",
+        "Valeur": 12,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Blé",
+        "Type": "ressource",
+        "Poids": 2,
+        "Effet": "Le meilleur atout pour rentrer à Ynuv",
+        "Valeur": 3,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      },
+      {
+        "Nom": "Fer",
+        "Type": "ressource",
+        "Poids": 15,
+        "Effet": "Pas le meilleur matériaux pour fabriquer un lit",
+        "Valeur": 10,
+        "Attaque": 0,
+        "Defense": 0,
+        "ClasseRequise": ""
+      }
+    ]
   },
-  "quetes": []
+  "quetes": [
+    {
+      "nom": "Vaincre le Chacha Agressif",
+      "accomplie": true,
+      "recompense": "1 potion",
+      "donneur_pnj": "Mathiouw",
+      "rendue": true
+    },
+    {
+      "nom": "Répression des Kairis",
+      "accomplie": false,
+      "recompense": "300 or, 3 potions de vie, 3 potions de mana",
+      "donneur_pnj": "Fillian",
+      "rendue": false,
+      "objectifs_combat": [
+        {
+          "nom_monstre": "Kairis",
+          "quantite_requise": 8,
+          "quantite_actuelle": 0
+        }
+      ],
+      "recompense_or": 300,
+      "recompense_potions_vie": 3,
+      "recompense_potions_mana": 3
+    }
+  ],
+  "intro_effectuee": true,
+  "position_x": 1,
+  "position_y": 0,
+  "etat_map": {
+    "zones": [
+      [
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": true,
+          "ressources_restantes": [
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer"
+          ],
+          "monstres_restants": [
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            },
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            },
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            },
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            },
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            }
+          ]
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        }
+      ],
+      [
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": true,
+          "ressources_restantes": [
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer",
+            "Fer"
+          ],
+          "monstres_restants": [
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            },
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            },
+            {
+              "nom": "Kairis",
+              "pv": 110,
+              "attaque": 35
+            }
+          ]
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": true,
+          "ressources_restantes": [],
+          "monstres_restants": [
+            {
+              "nom": "Moutmout",
+              "pv": 80,
+              "attaque": 25
+            },
+            {
+              "nom": "Retourneur de panneaux",
+              "pv": 150,
+              "attaque": 40
+            },
+            {
+              "nom": "Retourneur de panneaux",
+              "pv": 150,
+              "attaque": 40
+            },
+            {
+              "nom": "Retourneur de panneaux",
+              "pv": 150,
+              "attaque": 40
+            }
+          ]
+        },
+        {
+          "visitee": true,
+          "ressources_restantes": [],
+          "monstres_restants": [
+            {
+              "nom": "Retourneur de panneaux",
+              "pv": 150,
+              "attaque": 40
+            },
+            {
+              "nom": "Retourneur de panneaux",
+              "pv": 150,
+              "attaque": 40
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        }
+      ],
+      [
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": true,
+          "ressources_restantes": [
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Bois",
+            "Laitue Vireuse",
+            "Laitue Vireuse",
+            "Laitue Vireuse",
+            "Laitue Vireuse",
+            "Laitue Vireuse"
+          ],
+          "monstres_restants": [
+            {
+              "nom": "Ecumouilles",
+              "pv": 100,
+              "attaque": 30
+            },
+            {
+              "nom": "Ecumouilles",
+              "pv": 100,
+              "attaque": 30
+            },
+            {
+              "nom": "Ecumouilles",
+              "pv": 100,
+              "attaque": 30
+            },
+            {
+              "nom": "Ecumouilles",
+              "pv": 100,
+              "attaque": 30
+            },
+            {
+              "nom": "Ecumouilles",
+              "pv": 100,
+              "attaque": 30
+            }
+          ]
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": true,
+          "ressources_restantes": [
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon",
+            "Pichon"
+          ],
+          "monstres_restants": [
+            {
+              "nom": "Crabe Hijacob",
+              "pv": 90,
+              "attaque": 20
+            },
+            {
+              "nom": "Moumoule",
+              "pv": 250,
+              "attaque": 15
+            },
+            {
+              "nom": "Moumoule",
+              "pv": 250,
+              "attaque": 15
+            }
+          ]
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        }
+      ],
+      [
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        },
+        {
+          "visitee": false,
+          "ressources_restantes": null,
+          "monstres_restants": null
+        }
+      ]
+    ]
+  },
+  "zones_decouvertes": [
+    [
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      false,
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      true,
+      true,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  ],
+  "zones_ressources_recoltees": [
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  ],
+  "zones_monstres_vaincus": [
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  ]
 }
