@@ -80,14 +80,6 @@ func NewItem(nom string) Item {
 	case "Potion de Mana":
 		return Item{Nom: "Potion de Mana", Type: TypePotion, Poids: 2, Effet: "Restaure 50 Mana", Valeur: 50}
 	
-	// === ANCIENS OBJETS (COMPATIBILITÉ) ===
-	case "Épée en Fer":
-		return Item{Nom: "Épée en Fer", Type: TypeArme, Poids: 25, Effet: "Arme tranchante qui augmente l'attaque de 15", Valeur: 100, Attaque: 15}
-	case "Arc en Bois":
-		return Item{Nom: "Arc en Bois", Type: TypeArme, Poids: 15, Effet: "Arme à distance qui augmente la précision", Valeur: 80, Attaque: 10}
-	case "Armure de Cuir":
-		return Item{Nom: "Armure de Cuir", Type: TypeTorse, Poids: 30, Effet: "Protection qui augmente la défense de 10", Valeur: 120, Defense: 10}
-	
 	default:
 		return Item{Nom: nom, Type: TypeSpecial, Poids: 10, Effet: "Objet mystérieux aux propriétés inconnues", Valeur: 10}
 	}

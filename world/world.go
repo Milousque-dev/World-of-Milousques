@@ -262,14 +262,6 @@ func (m *Map) initializeZones() {
 		{"Forêt", "Forêt", "Rivière", "Rivière", "Rivière"},
 	}
 	
-	zoneNames := [5][5]string{
-		{"Champs du Nord", "Grandes Cultures", "Carrefour des Vents", "Entrée des Mines", "Puits Profonds"},
-		{"Terres Fertiles", "Orlière de la Forêt", "Route d'Astrab Ouest", "Route d'Astrab Est", "Mines Actives"},
-		{"Cœur de la Forêt", "Clairière Sacrée", "Astrab - Capitale", "Berges Paisibles", "Confluent des Eaux"},
-		{"Forêt Profonde", "Sentier des Chasseurs", "Route d'Astrab Sud", "Gues de la Rivière", "Delta Sauvage"},
-		{"Bois Anciens", "Refuge des Bûcherons", "Embouchure", "Rapides Tumultueux", "Estuaire Mystérieux"},
-	}
-	
 	for y := 0; y < 5; y++ {
 		for x := 0; x < 5; x++ {
 			zone := &m.Zones[y][x]
@@ -340,7 +332,6 @@ func (m *Map) initializeZones() {
 				m.ajouterPNJsSpeciaux(zone, x, y)
 			} else {
 				// Configuration normale selon les anciens tableaux
-				zone.Nom = zoneNames[y][x]
 				zoneType := zoneTypes[y][x]
 				
 				// Astrab a une configuration spéciale
